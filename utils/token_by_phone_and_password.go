@@ -5,15 +5,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/joho/godotenv"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
-
-// TODO: 在这里把自己的手机和密码改好嗷
-var reqType = TokenByPhoneAndPasswordReq{
-	Phone:    "Phone",
-	Password: "Password",
-}
 
 type TokenByPhoneAndPasswordReq struct {
 	Phone    string `json:"phone"`
@@ -31,6 +27,11 @@ type TokenByPhoneAndPasswordResp struct {
 
 func TokenByPhoneAndPasswordPost() (token string, err error) {
 	// 将请求数据编码为 JSON
+	godotenv.Load(".env")
+	var reqType = TokenByPhoneAndPasswordReq{
+		Phone:    os.Getenv("PHONE"),
+		Password: os.Getenv("PASSWORD"),
+	}
 	jsonData, err := json.Marshal(reqType)
 	if err != nil {
 		fmt.Println("Error marshaling data:", err)
