@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>明日方舟寻访记录</title>
+    <style>
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+            40%, 60% { transform: translate3d(3px, 0, 0); }
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #b6ecb6, #ffffff, #b6ecb6, #ffffff);
+            background-size: 400% 400%;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform, opacity;
+        }
+
+        .loading-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .loading-logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-image: url("logo.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            will-change: transform, opacity;
+        }
+
+        .loading-text {
+            font-size: 18px;
+            color: #00796b;
+            font-weight: bold;
+            transition: all 0.4s ease-out;
+            will-change: transform, opacity;
+        }
+
+        .loading-progress {
+            width: 100%;
+            z-index: 1000;
+            --mdui-color-primary: 0, 121, 107;
+            transition: all 0.4s ease-out;
+            will-change: transform, opacity;
+        }
+
+        h1, .pool-selector, .chart-container, .rare-chars {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background: linear-gradient(45deg, #b6ecb6, #ffffff, #b6ecb6, #ffffff);
+            background-size: 400% 400%;
+            animation: gradient 12s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .pool-selector {
+            margin: 20px 0;
+            max-width: 90%;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .chart-container {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .chart-container canvas {
+            width: 320px;
+            height: 300px;
+            position: relative;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+        }
+
+        .rare-chars {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+<!-- 加载遮罩 -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-content">
+        <div class="loading-logo"></div>
+        <div class="loading-text">加载寻访记录中...</div>
+        <mdui-linear-progress class="loading-progress"></mdui-linear-progress>
+    </div>
+</div>
+<h1>明日方舟寻访记录</h1>
+<div class="pool-selector" id="poolSelector">
+    <!-- 动态生成的池子按钮将放在这里 -->
+</div>
+<div class="chart-container" id="chartContainer">
+    <!-- 图表将放在这里 -->
+</div>
+<div class="rare-chars" id="rareCharsContainer">
+    <!-- 稀有干员卡片将放在这里 -->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+<script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
