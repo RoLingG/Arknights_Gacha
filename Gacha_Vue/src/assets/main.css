@@ -1,0 +1,102 @@
+/* src/assets/main.css - 明亮幻想复古风格 */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap');
+
+/* --- 响应式基准设置 (全局) --- */
+
+/* 默认基准 (适用于 1080p / 1K) */
+html {
+  font-size: 16px; /* 1rem = 16px */
+}
+
+/* 2K 屏幕适配 (宽度 >= 2000px) */
+@media (min-width: 2000px) {
+  html {
+    font-size: 20px; /* 放大约 1.25 倍 */
+  }
+}
+
+/* 4K 屏幕适配 (宽度 >= 3000px) */
+@media (min-width: 3000px) {
+  html {
+    font-size: 32px; /* 放大 2 倍 (3840 / 1920 = 2) */
+  }
+}
+
+/* 移动端/小屏适配 (宽度 <= 768px) */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* 稍微缩小 */
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #bdbd64;
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+/* 滚动条滑块在鼠标悬停时的样式 */
+::-webkit-scrollbar-thumb:hover {
+  background: #b6b650;
+}
+
+/* 全局控制页面的滚动行为 */
+body, html, #app {
+  /* ⚡️ 关键：当内容溢出时才显示滚动条，否则隐藏 */
+  overflow-y: auto; /* 允许垂直滚动 */
+  overflow-x: hidden;
+  /* 确保根元素高度能容纳内容，并且至少占满视口 */
+  height: 100%;
+  min-height: 100vh;
+}
+
+:root {
+  --rh-primary: #bdbd64;       /* 核心主色/朱红 (高亮、选中) */
+  --rh-dim: #9BC4CC;           /* 柔和青蓝 (边框、次级元素) */
+  --rh-accent: #D4AF85;        /* 温暖土黄 (强调色、稀有干员) */
+  --rh-bg-light: #F5F5E0;      /* 奶油白/浅灰 (主背景) */
+  --rh-text-dark: #333333;     /* 深灰 (主要文字颜色) */
+  --rh-bg-panel: rgba(255, 255, 255, 0.7); /* 半透明浅色面板 */
+  --rh-grid: rgba(232, 69, 71, 0.1);  /* 柔和朱红网格线 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* 换成浅色背景 */
+  background-color: var(--rh-bg-light);
+  font-family: 'Rajdhani', sans-serif;
+  /* 换成深色文字 */
+  color: var(--rh-text-dark);
+}
+
+/* 全局背景网格特效 - 柔和朱红网格线 */
+.rh-background {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, var(--rh-grid) 1px, transparent 1px),
+    linear-gradient(180deg, var(--rh-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.rh-background::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* 径向渐变，让中心区域更干净 */
+  background: radial-gradient(circle at 50% 50%, transparent 10%, var(--rh-bg-light) 90%);
+}
+
+
