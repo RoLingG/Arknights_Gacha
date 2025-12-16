@@ -41,3 +41,16 @@ localhost:8081
 
 大概就这样，谢谢你进来看我的仓库和我写的代码，希望没有污染到你的眼睛。
 
+### 新更新
+
+现在更新了 Vue3 前端，变化很大：
+
+```bash
+cd Gacha_Vue
+npm install
+npm run dev
+# 或者
+npm run build
+```
+
+后端开启好，前端也跑好了，就可以看新的页面设计辣！
