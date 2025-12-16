@@ -8,7 +8,7 @@
       <div class="background-line"></div>
       <header class="tech-header">
         <h1 class="title">
-          <span class="prefix">PRTS</span>
+          <span class="prefix">PRTS1</span>
           <span class="text">寻访记录</span>
           <span class="suffix">TERMINAL</span>
         </h1>
