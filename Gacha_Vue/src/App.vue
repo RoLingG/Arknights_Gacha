@@ -208,7 +208,7 @@ function initChart() {
         maintainAspectRatio: false,
         // 动画配置仍然保留，用于首次加载和 update() 调用
         animation: {
-          duration: 400,
+          duration: 800,
           easing: 'easeInOutQuad',
         },
         plugins: {
@@ -398,14 +398,12 @@ fetchData();
 }
 
 .card-body {
-  /* ⚡️ 核心修复：给图表区域一个明确的高度，防止卡片被拉伸或内容溢出 */
   height: 280px;
   position: relative;
   overflow: hidden;
   width: 100%;
 }
 
-/* ⚡️ 关键新增：强制 canvas 适应父容器，解决宽度计算错误 (image_b09535.png) */
 .card-body canvas {
   width: 100% !important;
   max-width: 100% !important;
@@ -453,7 +451,6 @@ fetchData();
   overflow: hidden;
 }
 
-/* 悬停效果：轻微上浮 + 发光边框 + 背景加深 */
 .tech-chip:hover {
   transform: translateY(-2px);
   border-color: var(--rh-primary);
@@ -475,17 +472,13 @@ fetchData();
 }
 
 .slide-in {
-  /* 初始状态不可见，防止闪烁 */
   opacity: 0;
-  /* 应用动画 */
   animation: slideInUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* 角落装饰 HUD */
 .hud-corner {
   position: absolute; bottom: 0; right: 0;
   width: 20px; height: 20px;
-  /* HUD 元素使用主色调 */
   border-bottom: 2px solid var(--rh-primary);
   border-right: 2px solid var(--rh-primary);
 }

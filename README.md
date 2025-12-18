@@ -48,9 +48,11 @@ localhost:8081
 ```bash
 cd Gacha_Vue
 npm install
+# 本地测试直接进 dev 给的 localhost 看就好了
 npm run dev
 # 或者
 npm run build
+# build 完之后记得将dist目录下打包好的文件覆盖外层的文件
 ```
 
 后端开启好，前端也跑好了，就可以看新的页面设计辣！
