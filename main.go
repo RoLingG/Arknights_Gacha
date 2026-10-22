@@ -67,7 +67,7 @@ func getGachaData() (allHistoryData []utils.CharInfo) {
 	return allHistoryData
 }
 
-// todo: 记得去token_by_phone_and_password里面改自己的手机和密码，以及记得去script.js里面更改自己的后端数据获取ip/域名
+// todo: 记得去script.js里面的fetch更改自己的后端数据获取的ip/域名
 func main() {
 	poolNameGrouped := make(map[string][]utils.CharInfo)
 	http.HandleFunc("/gacha-history", func(w http.ResponseWriter, r *http.Request) {

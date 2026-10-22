@@ -1,0 +1,35 @@
+# ---------- 敏感信息 ----------
+.env
+.env.*
+!.env.example
+
+# ---------- 构建产物 ----------
+/gacha
+/go-arknights-gacha
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go 测试与覆盖率
+*.test
+*.out
+/coverage.txt
+/coverage.html
+
+# 编译/调试产物
+*.pprof
+
+# ---------- 依赖与缓存 ----------
+/go.work
+/go.work.sum
+
+# 前端
+Gacha_Vue/node_modules/
+Gacha_Vue/dist/
+Gacha_Vue/dist-ssr/
+Gacha_Vue/.vite/
+Gacha_Vue/*.local
+Gacha_Vue/.eslintcache
+Gacha_Vue/.npmrc.local

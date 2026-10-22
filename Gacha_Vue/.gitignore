@@ -14,7 +14,11 @@ dist-ssr
 coverage
 *.local
 
-# Editor directories and files
+# Vite / 构建缓存
+.vite
+*.tsbuildinfo
+
+# 编辑器目录与文件
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -23,8 +27,6 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-
-*.tsbuildinfo
 
 .eslintcache
 
