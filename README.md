@@ -56,7 +56,7 @@ npm install
 npm run dev
 # 或者
 npm run build
-# build 完之后记得将dist目录下打包好的文件覆盖外层的文件
+# build 完之后记得将dist目录下打包好的文件放到外层的asset目录里，放之前记得清空外层的asset目录
 ```
 
 后端开启好，前端也跑好了，就可以看新的页面设计辣！！！！！
